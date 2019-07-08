@@ -1,7 +1,8 @@
 const weatherForm = document.querySelector('form');
 const search = document.querySelector('input');
-const locationDisplay = document.getElementById('lead1');
-const forecastDisplay = document.getElementById('lead2');
+const latlongeDisplay = document.getElementById('lead1');
+const locationDisplay = document.getElementById('lead2');
+const forecastDisplay = document.getElementById('lead3');
 const insertCity = document.getElementById('insertCity');
 
 weatherForm.addEventListener('submit', (e) => {
@@ -15,10 +16,10 @@ weatherForm.addEventListener('submit', (e) => {
             forecastDisplay.innerHTML = data.error;
         } else {
             insertCity.innerHTML = location;
+            latlongeDisplay.textContent = `${data.longitude}, ${data.latitude}`;
             locationDisplay.innerHTML = data.location;
             forecastDisplay.innerHTML = data.forecastData;
         }
-        
     })
 })
 })
